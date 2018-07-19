@@ -1,23 +1,19 @@
 package com.johncrisanto.courseregsystem.controllers;
 
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.security.Principal;
 
 @Controller
-public class HomeController {
-    
+@RequestMapping("/instructor")
+public class InstructorController {
+
     @GetMapping("/")
-    public String showHomePage(Principal principal) {
+    public String showInstructorPage(Principal principal) {
         System.out.println(principal.getName());
-        return "home";
+        return "instructor";
     }
-
-
-
-
-
 
 }
