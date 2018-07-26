@@ -60,8 +60,14 @@
             <version>${springsecurity.version}</version>
         </dependency>
 
-
         <!-- Hibernate-related dependencies -->
+        <!-- Hibernate Validator -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>6.0.7.Final</version>
+        </dependency>
+
         <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
         <dependency>
             <groupId>org.hibernate</groupId>
@@ -76,14 +82,13 @@
             <version>8.0.11</version>
         </dependency>
 
-
         <!-- Other database-related dependencies -->
         <!-- Connection pooling framework -->
         <!-- https://mvnrepository.com/artifact/c3p0/c3p0 -->
         <dependency>
-            <groupId>c3p0</groupId>
+            <groupId>com.mchange</groupId>
             <artifactId>c3p0</artifactId>
-            <version>0.9.0.4</version>
+            <version>0.9.5.2</version>
         </dependency>
 
         <!-- Servlets, JSPs, and JSTL dependencies -->
@@ -125,7 +130,6 @@
             <artifactId>jaxb-api</artifactId>
             <version>2.3.0</version>
         </dependency>
-
 
     </dependencies>
 
