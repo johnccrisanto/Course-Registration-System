@@ -1,6 +1,4 @@
-
 $(document).ready(function() {
-
     $('#username').change(function() {
         $.ajax({
             url: 'validateUsername',
@@ -32,9 +30,6 @@ $(document).ready(function() {
                    $('#email').focus();
                }
            }
-
        });
-
     });
-
 });

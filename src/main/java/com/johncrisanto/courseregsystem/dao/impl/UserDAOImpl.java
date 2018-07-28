@@ -22,12 +22,12 @@ public class UserDAOImpl implements UserDAO {
         Session currentSession = sessionFactory.getCurrentSession();
 
         // Create a query  ... sort by last name
-        Query<User> theQuery =
+        Query<User> query =
                 currentSession.createQuery("FROM User ORDER BY lastName",
                         User.class);
 
         // Execute query and get result list
-        List<User> customers = theQuery.getResultList();
+        List<User> customers = query.getResultList();
 
         // Return the results
         return customers;

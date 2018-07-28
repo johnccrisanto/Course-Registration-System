@@ -1,29 +1,56 @@
 package com.johncrisanto.courseregsystem.entity;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
+import com.johncrisanto.courseregsystem.utils.DateAttributeConverterUtils;
 
+import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.List;
+
+@Entity
+@Table (name = "course")
 public class Course {
 
-    private int id;
+    @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @Column (name = "id")
+    private Long id;
+
+    @Column (name = "start_date")
+    @Convert (converter = DateAttributeConverterUtils.class)
     private LocalDate startDate;
+
+    @Column (name = "end_date")
+    @Convert (converter = DateAttributeConverterUtils.class)
     private LocalDate endDate;
-    private LocalTime startTime;
-    private LocalTime endTime;
+
+    @Column (name = "name")
     private String name;
+
+    @Column (name = "description")
     private String description;
+
+    @Column (name = "instructor_name")
+    private String instructorName;
+
+    @Column (name = "enrollment_limit")
     private int enrollmentLimit;
+
+    @Column (name = "number_enrolled")
     private int numberEnrolled;
+
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
+    @JoinTable(name = "user_course", joinColumns = @JoinColumn(name = "course_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
+    private List<User> enrolled;
 
     public Course() {
 
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -41,22 +68,6 @@ public class Course {
 
     public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
-    }
-
-    public LocalTime getStartTime() {
-        return startTime;
-    }
-
-    public void setStartTime(LocalTime startTime) {
-        this.startTime = startTime;
-    }
-
-    public LocalTime getEndTime() {
-        return endTime;
-    }
-
-    public void setEndTime(LocalTime endTime) {
-        this.endTime = endTime;
     }
 
     public String getName() {
@@ -90,4 +101,22 @@ public class Course {
     public void setNumberEnrolled(int numberEnrolled) {
         this.numberEnrolled = numberEnrolled;
     }
+
+
+    public String getInstructorName() {
+        return instructorName;
+    }
+
+    public void setInstructorName(String instructorName) {
+        this.instructorName = instructorName;
+    }
+
+    public List<User> getEnrolled() {
+        return enrolled;
+    }
+
+    public void setEnrolled(List<User> enrolled) {
+        this.enrolled = enrolled;
+    }
+
 }

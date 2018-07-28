@@ -18,18 +18,15 @@ public class HomeController {
     private UserService userService;
     
     @GetMapping("/")
-    public String showHomePage(Principal principal) {
-        System.out.println(principal.getName());
+    public String showHomePage() {
         return "home";
     }
 
-    @GetMapping("/listUsers")
-    public String showUsers(Model model) {
+    @GetMapping("/showProfilePage")
+    public String showProfilePage() {
 
-        List<User> userList = userService.getUsers();
+        return "profile-page";
 
-        model.addAttribute("users", userList);
-
-        return "list-users";
     }
+
 }

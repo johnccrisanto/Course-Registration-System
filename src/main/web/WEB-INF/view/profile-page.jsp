@@ -1,22 +1,14 @@
-<%@include file="header.jsp" %>
+<%@include file="header.jsp"%>
 
 <div class="container">
-
-    <h2 class="text-secondary">Welcome to the Course Registration System!</h2>
-
-    <h4 class="text-secondary" style="margin-top: 20px;">Please click on the images below to either navigate to your profile page or to view the list of courses.
-    </h4>
-
+    <h1>My Profile Page</h1>
 
     <div class="row">
         <div class="col-sm-6">
-            <a href="#"><img class="img-fluid" src="${pageContext.request.contextPath}/resources/img/my_profile.jpg"
-                             style="max-width: 300px; margin-top: 30px;"></a>
+            <a href=""><img class="img-fluid" src="${pageContext.request.contextPath}/resources/img/my_profile.jpg" style="max-width: 300px;"></a>
         </div>
-
         <div class="col-sm-6">
-            <a href="#"><img class="img-fluid" src="${pageContext.request.contextPath}/resources/img/our_courses.png"
-                             style="max-width: 300px;"></a>
+            <img class="img-fluid" src="${pageContext.request.contextPath}/resources/img/our_courses.png" style="max-width: 300px;">
         </div>
     </div>
 
@@ -44,4 +36,4 @@
     </form:form>
 
 </div>
-<%@ include file="footer.jsp" %>
+<%@ include file="footer.jsp"%>

@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 public class RoleDAOImpl implements RoleDAO {
 
     @Autowired
-    SessionFactory sessionFactory;
+    private SessionFactory sessionFactory;
 
     @Override
     public Role findByRoleName(String roleName) {
