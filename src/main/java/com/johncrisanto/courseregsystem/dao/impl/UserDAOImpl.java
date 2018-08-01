@@ -118,8 +118,9 @@ public class UserDAOImpl implements UserDAO {
 
         course.incrementNumberEnrolled();
 
-        currentSession.saveOrUpdate(user);
-        currentSession.saveOrUpdate(course);
+        currentSession.merge(user);
+        currentSession.merge(course);
+
     }
 
     @Override
@@ -137,7 +138,7 @@ public class UserDAOImpl implements UserDAO {
 
         course.decrementNumberEnrolled();
 
-        currentSession.saveOrUpdate(user);
-        currentSession.saveOrUpdate(course);
+        currentSession.merge(user);
+        currentSession.merge(course);
     }
 }

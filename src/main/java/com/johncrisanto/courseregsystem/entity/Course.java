@@ -147,7 +147,7 @@ public class Course {
         if(obj instanceof Course) {
             Course course = (Course) obj;
 
-            if(this.id == course.getId()) return true;
+            if(this.id == course.getId() && this.getName().equals(course.getName())) return true;
         }
 
         return false;

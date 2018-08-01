@@ -123,7 +123,14 @@ public class User {
     }
 
     public void removeCourse(Course course) {
-        courses.remove(course);
+        for(Iterator<Course> c = courses.iterator(); c.hasNext();) {
+            Course temp = c.next();
+            System.out.println("Course ID: " + temp.getId() +", Course Name: " + temp.getName());
+            System.out.println("Course ID: " + course.getId() +", Course Name: " + course.getName());
+            if(temp.equals(course)) {
+                c.remove();
+            }
+        }
     }
 
 }
