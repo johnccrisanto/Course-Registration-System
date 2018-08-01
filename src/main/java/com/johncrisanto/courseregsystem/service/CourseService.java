@@ -1,6 +1,7 @@
 package com.johncrisanto.courseregsystem.service;
 
 import com.johncrisanto.courseregsystem.entity.Course;
+import com.johncrisanto.courseregsystem.entity.User;
 
 import java.util.List;
 
@@ -14,4 +15,7 @@ public interface CourseService {
     Course findById(Long id);
 
     void delete(Long id);
+
+
+    List<Course> getUserCourses(User user);
 }

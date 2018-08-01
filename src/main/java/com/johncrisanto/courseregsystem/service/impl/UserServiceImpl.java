@@ -2,6 +2,7 @@ package com.johncrisanto.courseregsystem.service.impl;
 
 import com.johncrisanto.courseregsystem.dao.RoleDAO;
 import com.johncrisanto.courseregsystem.dao.UserDAO;
+import com.johncrisanto.courseregsystem.entity.Course;
 import com.johncrisanto.courseregsystem.entity.Role;
 import com.johncrisanto.courseregsystem.entity.User;
 import com.johncrisanto.courseregsystem.service.UserService;
@@ -45,6 +46,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User findByUsernameAll(String username) {
+        return userDAO.findByUsernameAll(username);
+    }
+
+    @Override
     @Transactional
     public User findByEmail(String email) {
         return userDAO.findByEmail(email);
@@ -80,5 +86,23 @@ public class UserServiceImpl implements UserService {
         newUser.setRoles(Arrays.asList(roleDAO.findByRoleName("ROLE_STUDENT")));
 
         userDAO.save(newUser);
+    }
+
+    @Override
+    @Transactional
+    public void saveUser(User user) {
+        userDAO.saveUser(user);
+    }
+
+    @Override
+    @Transactional
+    public void addCourse(Course course, Long id) {
+        userDAO.addCourse(course, id);
+    }
+
+    @Override
+    @Transactional
+    public void removeCourse(Course course, Long id) {
+        userDAO.removeCourse(course, id);
     }
 }

@@ -8,16 +8,25 @@
     </h4>
 
 
+
     <div class="row">
         <div class="col-sm-6">
-            <a href="#"><img class="img-fluid" src="${pageContext.request.contextPath}/resources/img/my_profile.jpg"
-                             style="max-width: 300px; margin-top: 30px;"></a>
+            <img class="img-fluid" src="${pageContext.request.contextPath}/resources/img/my_profile.jpg"
+                             style="max-width: 300px; margin-top: 30px;">
         </div>
 
         <div class="col-sm-6">
-            <a href="#"><img class="img-fluid" src="${pageContext.request.contextPath}/resources/img/our_courses.png"
-                             style="max-width: 300px;"></a>
+            <img id="coursesImg" class="img-fluid" src="${pageContext.request.contextPath}/resources/img/our_courses.png"
+                             style="max-width: 300px;">
         </div>
+    </div>
+
+    <div class="registrationMessage" style="margin-bottom: 20px;">
+
+    </div>
+
+    <div class="course_data">
+
     </div>
 
 

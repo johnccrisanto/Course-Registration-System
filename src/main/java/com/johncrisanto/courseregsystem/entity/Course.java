@@ -1,5 +1,6 @@
 package com.johncrisanto.courseregsystem.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.johncrisanto.courseregsystem.utils.DateAttributeConverterUtils;
 
 import javax.persistence.*;
@@ -40,6 +41,7 @@ public class Course {
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
     @JoinTable(name = "user_course", joinColumns = @JoinColumn(name = "course_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
+    @JsonIgnore
     private List<User> enrolled;
 
     public Course() {
@@ -118,5 +120,38 @@ public class Course {
     public void setEnrolled(List<User> enrolled) {
         this.enrolled = enrolled;
     }
+
+    public void incrementNumberEnrolled() {
+        if(numberEnrolled < enrollmentLimit) {
+            numberEnrolled++;
+        }
+
+    }
+
+    public void decrementNumberEnrolled() {
+        if(numberEnrolled > 0) {
+            numberEnrolled--;
+        }
+    }
+
+    @Override
+    public int hashCode() {
+        return name.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+
+        if(obj == null) return false;
+
+        if(obj instanceof Course) {
+            Course course = (Course) obj;
+
+            if(this.id == course.getId()) return true;
+        }
+
+        return false;
+    }
+
 
 }

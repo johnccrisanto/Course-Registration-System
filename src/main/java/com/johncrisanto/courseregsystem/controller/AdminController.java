@@ -49,34 +49,29 @@ public class AdminController {
     @PostMapping("/processAddNewCourse")
     public String processAddNewCourse(HttpServletRequest request, Model model) {
 
-        String courseName = request.getParameter("name");
-        logger.info("Processing the addition of a course.");
+        Course course = new Course();
+        try {
+            if(request.getParameter("id").equals("")) {
 
-        Course existingCourse = courseService.findByCourseName(courseName);
-
-        if(existingCourse != null) {
-            model.addAttribute("newCourse", new Course());
-            model.addAttribute("addNewCourseError", true);
-            logger.warning("The course name provided already exists.");
-        } else {
-
-            Course course = new Course();
-            try {
-                course.setName(courseName);
-                course.setInstructorName(request.getParameter("instructorName"));
-                course.setStartDate(DateUtils.parseDate(request.getParameter("startDate")));
-                course.setEndDate(DateUtils.parseDate(request.getParameter("endDate")));
-                course.setEnrollmentLimit(Integer.parseInt(request.getParameter("enrollmentLimit")));
-                course.setNumberEnrolled(Integer.parseInt(request.getParameter("numberEnrolled")));
-                course.setDescription(request.getParameter("description"));
-            } catch (ParseException e) {
-                e.printStackTrace();
+            } else {
+                course.setId(Long.parseLong(request.getParameter("id")));
             }
 
-            courseService.save(course);
-            logger.info("The registration as a new user was successful.");
-            model.addAttribute("addSuccess", true);
+            course.setName(request.getParameter("name"));
+            course.setInstructorName(request.getParameter("instructorName"));
+            course.setStartDate(DateUtils.parseDate(request.getParameter("startDate")));
+            course.setEndDate(DateUtils.parseDate(request.getParameter("endDate")));
+            course.setEnrollmentLimit(Integer.parseInt(request.getParameter("enrollmentLimit")));
+            course.setNumberEnrolled(Integer.parseInt(request.getParameter("numberEnrolled")));
+            course.setDescription(request.getParameter("description"));
+        } catch (ParseException e) {
+            e.printStackTrace();
         }
+
+        courseService.save(course);
+        logger.info("The registration as a new user was successful.");
+        model.addAttribute("addSuccess", true);
+
 
         return "add-new-course-form";
     }
@@ -97,6 +92,8 @@ public class AdminController {
         courseService.delete(id);
 
         model.addAttribute("deleteSuccess", true);
+        List<Course> courseList = courseService.getCourses();
+        model.addAttribute("courses", courseList);
         return "course-list";
     }
 

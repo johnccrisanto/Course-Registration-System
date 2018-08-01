@@ -3,6 +3,7 @@ package com.johncrisanto.courseregsystem.entity;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 
 @Entity
@@ -120,4 +121,9 @@ public class User {
 
         courses.add(course);
     }
+
+    public void removeCourse(Course course) {
+        courses.remove(course);
+    }
+
 }

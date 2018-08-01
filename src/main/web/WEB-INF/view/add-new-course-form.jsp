@@ -17,7 +17,7 @@
         <c:if test="${addSuccess}">
             <div>
                 <p>
-                    <span style="color: #00ff00; font-weight: bold; font-style: italic;">The course was successfully added.</span>
+                    <span style="color: #00ff00; font-weight: bold; font-style: italic;">The course was successfully added / updated.</span>
                 </p>
             </div>
         </c:if>
@@ -52,6 +52,8 @@
         <div class="form-group">
             Course Description: <textarea class="form-control" name="description" rows="10" cols="30" placeholder="Course description..." required="required">${course.description}</textarea>
         </div>
+
+        <input type="hidden" name="id" value="${course.id}">
 
         <input type="submit" value="Submit" class="btn btn-primary">
     </form:form>

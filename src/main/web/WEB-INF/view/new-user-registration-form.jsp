@@ -2,7 +2,7 @@
 <div class="container">
 
 
-    <h1>New User Registration Form</h1>
+    <h2 class="text-secondary">New User Registration Form</h2>
 
     <form:form action="processNewUserRegistration" method="post" modelAttribute="newUser">
 

@@ -2,6 +2,7 @@ package com.johncrisanto.courseregsystem.dao.impl;
 
 import com.johncrisanto.courseregsystem.dao.CourseDAO;
 import com.johncrisanto.courseregsystem.entity.Course;
+import com.johncrisanto.courseregsystem.entity.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -81,5 +82,20 @@ public class CourseDAOImpl implements CourseDAO {
         Query<Course> query = currentSession.createQuery("DELETE FROM Course c WHERE c.id = :courseId");
         query.setParameter("courseId", id);
         query.executeUpdate();
+    }
+
+    @Override
+    public List<Course> getUserCourses(User user) {
+
+        // Get the current hibernate session
+        Session currentSession = sessionFactory.getCurrentSession();
+
+        // Create the query
+        Query<Course> query = currentSession.createQuery("SELECT c FROM Course c JOIN c.enrolled e WHERE e.id = :idUser");
+        query.setParameter("idUser", user.getId());
+
+        List<Course> courseList = query.getResultList();
+
+        return courseList;
     }
 }

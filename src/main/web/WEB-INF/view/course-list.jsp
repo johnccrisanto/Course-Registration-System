@@ -14,6 +14,7 @@
             </p>
         </div>
     </c:if>
+
     <table class="table table-striped table-hover table-condensed table-bordered table-responsive">
         <thead>
         <tr>

@@ -2,6 +2,7 @@ package com.johncrisanto.courseregsystem.service.impl;
 
 import com.johncrisanto.courseregsystem.dao.CourseDAO;
 import com.johncrisanto.courseregsystem.entity.Course;
+import com.johncrisanto.courseregsystem.entity.User;
 import com.johncrisanto.courseregsystem.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -42,5 +43,11 @@ public class CourseServiceImpl implements CourseService {
     @Transactional
     public void delete(Long id) {
         courseDAO.delete(id);
+    }
+
+    @Override
+    @Transactional
+    public List<Course> getUserCourses(User user) {
+        return courseDAO.getUserCourses(user);
     }
 }

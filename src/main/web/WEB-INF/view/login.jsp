@@ -23,8 +23,8 @@
         </c:if>
 
         <div class="form-group">
-            <label for="username">Username</label>
-            <input id="username" name="username" class="form-control" placeholder="Username..." type="text">
+            <label for="usernameLogin">Username</label>
+            <input id="usernameLogin" name="username" class="form-control" placeholder="Username..." type="text">
         </div>
 
         <div class="form-group">

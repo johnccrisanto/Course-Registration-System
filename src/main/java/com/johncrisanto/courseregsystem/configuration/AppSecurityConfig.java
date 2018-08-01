@@ -22,7 +22,7 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserService userService;
 
-    private static final String[] PUBLIC_MATCHERS = {};
+    private static final String[] PUBLIC_MATCHERS = {"/login", "/logout"};
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
