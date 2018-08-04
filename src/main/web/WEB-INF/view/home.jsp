@@ -11,7 +11,7 @@
 
     <div class="row">
         <div class="col-sm-6">
-            <img class="img-fluid" src="${pageContext.request.contextPath}/resources/img/my_profile.jpg"
+            <img id="myProfileImg" class="img-fluid" src="${pageContext.request.contextPath}/resources/img/my_profile.jpg"
                              style="max-width: 300px; margin-top: 30px;">
         </div>
 

@@ -94,6 +94,19 @@ $(document).ready(function() {
 
             });
 
+            $('.myProfileImg').click( function() {
+
+                $.ajax( {
+
+                    type: 'GET',
+                    url: '',
+                    success: function(listOfCourseObj) {
+
+                    },
+
+                });
+            });
+
             document.querySelector('.course_data').addEventListener('click', regOrUnreg);
 
             // Utility Methods
