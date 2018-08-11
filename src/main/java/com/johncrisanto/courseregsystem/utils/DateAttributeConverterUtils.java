@@ -8,6 +8,7 @@ import java.time.LocalDate;
 
 @Converter(autoApply = false)
 public class DateAttributeConverterUtils implements AttributeConverter<LocalDate, Date> {
+
     @Override
     public Date convertToDatabaseColumn(LocalDate localDate) {
         return (localDate == null ? null: Date.valueOf(localDate));

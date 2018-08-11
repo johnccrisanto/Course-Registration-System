@@ -18,7 +18,6 @@ import javax.sql.DataSource;
 @EnableWebSecurity
 public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    // Security data source
     @Autowired
     private UserService userService;
 
@@ -26,16 +25,6 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-
-        // In memory authentication (demo purposes only)
-//        User.UserBuilder users = User.withDefaultPasswordEncoder();
-//
-//        auth.inMemoryAuthentication()
-//                .withUser(users.username("john").password("test123").roles("STUDENT"))
-//                .withUser(users.username("mary").password("test123").roles("STUDENT","INSTRUCTOR"))
-//                .withUser(users.username("susan").password("test123").roles("STUDENT","ADMIN"));
-
-        // JDBC Authentication configuration
         auth.authenticationProvider(authenticationProvider());
     }
 

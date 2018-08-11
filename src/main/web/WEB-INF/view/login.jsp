@@ -16,6 +16,7 @@
             </div>
         </c:if>
 
+        <!-- Check for logout parameter -->
         <c:if test="${param.logout != null}">
             <div class="alert alert-success" style="margin-top: 20px; padding-top: 20px; text-align: center;">
                 <p>You have been successfully logged out.</p>

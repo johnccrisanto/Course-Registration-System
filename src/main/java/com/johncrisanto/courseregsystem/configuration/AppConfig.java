@@ -113,6 +113,7 @@ public class AppConfig implements WebMvcConfigurer {
         return txManager;
     }
 
+    // Configure the resources folder
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/resources/**")

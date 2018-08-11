@@ -32,8 +32,10 @@ public class AdminController {
     @GetMapping("/viewListOfCourses")
     public String viewListOfCourses(Model model) {
 
+        // Retrieve the list of courses
         List<Course> courses = courseService.getCourses();
 
+        // Store the list of courses on the middle to be accessed at the view page
         model.addAttribute("courses", courses);
 
         return "course-list";
@@ -49,8 +51,10 @@ public class AdminController {
     @PostMapping("/processAddNewCourse")
     public String processAddNewCourse(HttpServletRequest request, Model model) {
 
+        // Create an empty course object
         Course course = new Course();
         try {
+
             if(request.getParameter("id").equals("")) {
 
             } else {
